@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { TextField, Button, Container } from "@mui/material";
 
 import { useFormik } from "formik";
 
-const TaxForm = (onSubmit) => {
+const TaxForm = ({ onSubmit }) => {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -16,7 +17,7 @@ const TaxForm = (onSubmit) => {
         errors.name = "O campo nome é obrigatório.";
       }
 
-      if (!values.idade) {
+      if (!values.age) {
         errors.age = "O campo idade é obrigatório.";
       }
 
@@ -41,7 +42,7 @@ const TaxForm = (onSubmit) => {
           onChange={formik.handleChange}
           value={formik.values.name}
           helperText={formik.errors.name}
-          error={Boolean(formik.errors.age)}
+          error={Boolean(formik.errors.name)}
         />
         <TextField
           fullWidth
